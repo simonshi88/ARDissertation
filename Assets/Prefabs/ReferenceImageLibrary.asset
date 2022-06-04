@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848409ee8ba454f42a5ddff137688a27, type: 3}
+  m_Name: ReferenceImageLibrary
+  m_EditorClassIdentifier: 
+  m_GuidLow: 5532451943670102681
+  m_GuidHigh: 1942842270559001999
+  m_Images:
+  - m_SerializedGuid:
+      m_GuidLow: 5032334953497228938
+      m_GuidHigh: 17599645539638500272
+    m_SerializedTextureGuid:
+      m_GuidLow: 2248676295230508920
+      m_GuidHigh: 12837516644072823144
+    m_Size: {x: 18, y: 24}
+    m_SpecifySize: 1
+    m_Name: pad
+    m_Texture: {fileID: 2800000, guid: 300e4f78e72d1f34681920285f0528b2, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 5209421977381807946
+      m_GuidHigh: 16253055469616249005
+    m_SerializedTextureGuid:
+      m_GuidLow: 6297238756521457358
+      m_GuidHigh: 12451798652465035113
+    m_Size: {x: 0, y: 0}
+    m_SpecifySize: 0
+    m_Name: leaf
+    m_Texture: {fileID: 2800000, guid: ec48b6ce4948576469b7dde6e6accdac, type: 3}
