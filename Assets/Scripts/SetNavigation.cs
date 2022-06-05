@@ -21,8 +21,9 @@ public class SetNavigation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        if ((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetKeyDown(KeyCode.T))
         {
+            Debug.Log("successed navigation");
             lineToggle = !lineToggle;
         }
         if (lineToggle)
