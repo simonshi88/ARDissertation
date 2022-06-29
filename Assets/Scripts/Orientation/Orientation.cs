@@ -99,11 +99,11 @@ public class Orientation : MonoBehaviour
         // Update information about the tracked image
         var text = canvas.GetComponentInChildren<Text>();
         text.text = string.Format(
-            "{0}\ntrackingState: {1}\nGUID: {2}\nReference size: {3} cm\nDetected size: {4} cm",
+            "{0}\ntrackingState: {1}\nPosition: {2}\nRotation: {3} cm\nDetected size: {4} cm",
             trackedImage.referenceImage.name,
             trackedImage.trackingState,
-            trackedImage.referenceImage.guid,
-            trackedImage.referenceImage.size * 100f,
+            trackedImage.transform.position,
+            trackedImage.transform.rotation,
             trackedImage.size * 100f);
 
         var planeParentGo = trackedImage.transform.GetChild(0).gameObject;

@@ -1,0 +1,116 @@
+{
+ "Items": [
+  {
+   "Title": "Group Study Room 2.03",
+   "Status": "Unavailable",
+   "Time": "22:00",
+   "Day": "Wednesday",
+   "Date": "June 29, 2022"
+  },
+  {
+   "Title": "Group Study Room 2.03",
+   "Status": "Unavailable",
+   "Time": "22:30",
+   "Day": "Wednesday",
+   "Date": "June 29, 2022"
+  },
+  {
+   "Title": "Group Study Room 2.03",
+   "Status": "Unavailable",
+   "Time": "23:00",
+   "Day": "Wednesday",
+   "Date": "June 29, 2022"
+  },
+  {
+   "Title": "Group Study Room 2.03",
+   "Status": "Unavailable",
+   "Time": "23:30",
+   "Day": "Wednesday",
+   "Date": "June 29, 2022"
+  },
+  {
+   "Title": "Group Study Room 2.05",
+   "Status": "Available",
+   "Time": "22:00",
+   "Day": "Wednesday",
+   "Date": "June 29, 2022"
+  },
+  {
+   "Title": "Group Study Room 2.05",
+   "Status": "Available",
+   "Time": "22:30",
+   "Day": "Wednesday",
+   "Date": "June 29, 2022"
+  },
+  {
+   "Title": "Group Study Room 2.05",
+   "Status": "Available",
+   "Time": "23:00",
+   "Day": "Wednesday",
+   "Date": "June 29, 2022"
+  },
+  {
+   "Title": "Group Study Room 2.05",
+   "Status": "Available",
+   "Time": "23:30",
+   "Day": "Wednesday",
+   "Date": "June 29, 2022"
+  },
+  {
+   "Title": "Group Study Room 2.10",
+   "Status": "Available",
+   "Time": "22:00",
+   "Day": "Wednesday",
+   "Date": "June 29, 2022"
+  },
+  {
+   "Title": "Group Study Room 2.10",
+   "Status": "Available",
+   "Time": "22:30",
+   "Day": "Wednesday",
+   "Date": "June 29, 2022"
+  },
+  {
+   "Title": "Group Study Room 2.10",
+   "Status": "Available",
+   "Time": "23:00",
+   "Day": "Wednesday",
+   "Date": "June 29, 2022"
+  },
+  {
+   "Title": "Group Study Room 2.10",
+   "Status": "Available",
+   "Time": "23:30",
+   "Day": "Wednesday",
+   "Date": "June 29, 2022"
+  },
+  {
+   "Title": "Group Study Room 3.07",
+   "Status": "Unavailable",
+   "Time": "22:00",
+   "Day": "Wednesday",
+   "Date": "June 29, 2022"
+  },
+  {
+   "Title": "Group Study Room 3.07",
+   "Status": "Unavailable",
+   "Time": "22:30",
+   "Day": "Wednesday",
+   "Date": "June 29, 2022"
+  },
+  {
+   "Title": "Group Study Room 3.07",
+   "Status": "Available",
+   "Time": "23:00",
+   "Day": "Wednesday",
+   "Date": "June 29, 2022"
+  },
+  {
+   "Title": "Group Study Room 3.07",
+   "Status": "Unavailable",
+   "Time": "23:30",
+   "Day": "Wednesday",
+   "Date": "June 29, 2022"
+  }
+ ]
+}

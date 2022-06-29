@@ -1,0 +1,96 @@
+{
+    "Title": "Student Center",
+    "Adress": "27-28 Gordon Square, London WC1H 0AW",
+    "FloorNumber": 5,
+    "BasementOne": {
+        "destinations": [],
+        "title": "",
+        "floorLevel": 0
+    },
+    "Mezzanine": {
+        "destinations": [],
+        "title": "",
+        "floorLevel": 0
+    },
+    "SecondFloor": {
+        "destinations": [
+            {
+                "stuff": {
+                    "instanceID": 0
+                },
+                "title": "",
+                "board": {
+                    "title": "",
+                    "content": "",
+                    "TypeInfo": 0
+                },
+                "isGoal": false,
+                "type": 0
+            },
+            {
+                "stuff": {
+                    "instanceID": 0
+                },
+                "title": "",
+                "board": {
+                    "title": "",
+                    "content": "",
+                    "TypeInfo": 0
+                },
+                "isGoal": false,
+                "type": 0
+            },
+            {
+                "stuff": {
+                    "instanceID": 0
+                },
+                "title": "",
+                "board": {
+                    "title": "",
+                    "content": "",
+                    "TypeInfo": 0
+                },
+                "isGoal": false,
+                "type": 0
+            },
+            {
+                "stuff": {
+                    "instanceID": 0
+                },
+                "title": "",
+                "board": {
+                    "title": "",
+                    "content": "",
+                    "TypeInfo": 0
+                },
+                "isGoal": false,
+                "type": 0
+            },
+            {
+                "stuff": {
+                    "instanceID": 0
+                },
+                "title": "",
+                "board": {
+                    "title": "",
+                    "content": "",
+                    "TypeInfo": 0
+                },
+                "isGoal": false,
+                "type": 0
+            }
+        ],
+        "title": "",
+        "floorLevel": 0
+    },
+    "ThirdFloor": {
+        "destinations": [],
+        "title": "",
+        "floorLevel": 0
+    },
+    "FourthFloor": {
+        "destinations": [],
+        "title": "",
+        "floorLevel": 0
+    }
+}

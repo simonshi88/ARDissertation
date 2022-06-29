@@ -4,13 +4,21 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/IndoorNavigation.unity
+    guid: e872a5a13d1b91a43926d8db059b5fa8
+  - enabled: 1
+    path: Assets/Scenes/StudentCenter.unity
+    guid: f8af453264987344b9d060d541285f83
   m_configObjects:
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: 744b813df90924c169af73489b8325de,
       type: 2}
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 53738d47cde1456438c0fbce336157ae,
       type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: de8a8e4f987434338a4b1062feb8d069,
+      type: 2}
+    com.unity.addressableassets: {fileID: 11400000, guid: fc7dd67bee751f344934c1ab1b3352d0,
       type: 2}
     com.unity.xr.arcore.PlayerSettings: {fileID: 11400000, guid: c2f7b8d7c0bff4d10874cbcf3f24af78,
       type: 2}

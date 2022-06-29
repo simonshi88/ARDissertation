@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
+[RequireComponent(typeof(ARPlaneManager))]
 public class SyncPose : MonoBehaviour
 {
     [SerializeField]
@@ -31,11 +32,14 @@ public class SyncPose : MonoBehaviour
 
     public ARTrackedImageManager m_TrackedImageManager;
 
+    ARPlaneManager m_PlaneManager;
+
     public Text log;
 
 
     void Awake()
     {
+        m_PlaneManager = GetComponent<ARPlaneManager>();
         SetPhysicalOrigin();
         SetPhysicalAnchor();
         SetAROrigin();
@@ -73,36 +77,29 @@ public class SyncPose : MonoBehaviour
 
     private void OnImageChanged(ARTrackedImage item)
     {
-        UpdateInfo(item);
-        log.text += "imageChanged";
+        UpdateInfo();
+        log.text += "imageChanged" + item.name;
     }
 
-    private void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs eventArgs)
-    {
-        foreach (var trackedImage in eventArgs.added)
-        {
-             UpdateInfo(trackedImage);
-        }
 
-        foreach (var trackedImage in eventArgs.updated)
-        {
-            //if (Vector3.Distance(trackedImage.transform.position, m_ARSessionPosition.transform.position) > 1)
-            UpdateInfo(trackedImage);
-        }
-
-    }
-
-    private void UpdateInfo(ARTrackedImage trackedImage)
+    public void UpdateInfo()
     {
 
-        var pose = trackedImage.transform;
-        m_ARAnchor.position = pose.position;
-        m_ARAnchor.rotation = pose.rotation;
+        m_ARAnchor.position = m_ARSessionPosition.GetComponentInChildren<Camera>().transform.position;
+
+        // Correct the rotation in the z-direction to ensure that the building is erect.
+        var z_correct = m_ARSessionPosition.GetComponentInChildren<Camera>().transform.rotation;
+        var z_corrected = new Quaternion(z_correct.x, z_correct.y, Quaternion.identity.z, z_correct.w);
+
+        m_ARAnchor.rotation = z_corrected;
+
+
 
         var offset_1 = m_PhysicalAnchor.position - m_ARAnchor.position;
-        var offset_2 = m_ARAnchor.rotation * m_PhysicalAnchor.rotation;
-        SyncOrientation(offset_1, offset_2);
-       
+        var offset_2 = m_PhysicalAnchor.rotation * Quaternion.Inverse(m_ARAnchor.rotation);
+        SyncOrientation(offset_1, offset_2, m_PhysicalAnchor.position);
+        //SyncVectialPosition(DetectDistance.PositionY);
+
     }
     private void UpdateInfo(GameObject cube)
     {
@@ -111,22 +108,39 @@ public class SyncPose : MonoBehaviour
         {
             var pose = cube.transform;
             m_ARAnchor.position = pose.position;
-            m_ARAnchor.rotation = pose.rotation;
+
+            var z_correct = cube.transform.rotation;
+            var z_corrected = new Quaternion(z_correct.x, z_correct.y, Quaternion.identity.z, z_correct.w);
+
+            m_ARAnchor.rotation = z_corrected;
+
+            m_ARAnchor.rotation = z_corrected;
 
             var offset_1 = m_PhysicalAnchor.position - m_ARAnchor.position;
-            var offset_2 = m_ARAnchor.rotation * m_PhysicalAnchor.rotation;
-            SyncOrientation(offset_1, offset_2);
+            var offset_2 = m_PhysicalAnchor.rotation * Quaternion.Inverse(m_ARAnchor.rotation);
+
+            SyncOrientation(offset_1, offset_2, m_PhysicalAnchor.position);
+
+            //SyncVectialPosition(DetectDistance.PositionY);
             place = false;
         }
     }
 
-    private void SyncOrientation(Vector3 offset_1, Quaternion offset_2)
+    private void SyncVectialPosition(float distance)
     {
-        ARSessionPosition.transform.position += offset_1;
-        ARSessionPosition.transform.rotation = offset_2 * ARSessionPosition.transform.rotation;
+        m_ARSessionPosition.transform.position = new Vector3(m_ARSessionPosition.transform.position.x, 
+            m_ARSessionPosition.transform.position.y + distance, m_ARSessionPosition.transform.position.z);
+    }
 
-        //testCube.transform.position += offset_1;
-        //testCube.transform.rotation = offset_2 * testCube.transform.rotation;
+    private void SyncOrientation(Vector3 offset_1, Quaternion offset_2, Vector3 anchor)
+    {
+        m_ARSessionPosition.transform.position += offset_1 ;
+        //m_ARSessionPosition.transform.position += new Vector3(0, m_ARAnchor.position.y, 0);
+        m_ARSessionPosition.transform.rotation = offset_2 * m_ARSessionPosition.transform.rotation;
+        var vectorBetween = anchor - m_ARSessionPosition.transform.position;
+        var newPosition = offset_2 * vectorBetween;
+        m_ARSessionPosition.transform.position += vectorBetween - newPosition;
+
     }
 
 
@@ -134,12 +148,16 @@ public class SyncPose : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        //UpdateInfo(testCube);
+        var plane = m_PlaneManager.planePrefab;
+        var distance = m_ARSessionPosition.GetComponentInChildren<Camera>().transform.position - plane.transform.position;
+        UpdateInfo(testCube);
+        log.text = "Position = " + m_ARSessionPosition.GetComponentInChildren<Camera>().transform.position.ToString()
+    + "\nRotation = " + m_ARSessionPosition.GetComponentInChildren<Camera>().transform.rotation.ToString() + "\nDistance = " + DetectDistance.PositionY;
     }
 }
